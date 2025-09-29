@@ -1,0 +1,11 @@
+.custom-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+  font-weight: lighter;
+}
+
+.custom-font1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+  font-weight: 300;
+}
