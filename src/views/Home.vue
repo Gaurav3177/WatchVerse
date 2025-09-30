@@ -58,7 +58,7 @@
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in recom" :key="item.id" :title="item.title"
-                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" @click="gotoDetails(item.id,'movie')">
+                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="movie" @click="gotoDetails(item.id,'movie')">
                 </Card>
 
 
@@ -73,7 +73,7 @@
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in pop" :key="item.id" :title="item.name" :img="baseimage + item.poster_path"
-                    class="rec" :vote="item.vote_average.toFixed(1)" @click="gotoDetails(item.id,'tv')">
+                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv" @click="gotoDetails(item.id,'tv')">
                 </Card>
 
 
@@ -88,7 +88,7 @@
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in xyz" :key="item.id" :title="item.name" :img="baseimage + item.poster_path"
-                    class="rec" :vote="item.vote_average.toFixed(1)" @click="gotoDetails(item.id,'tv')">
+                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv" @click="gotoDetails(item.id,'tv')">
                 </Card>
 
 
@@ -108,10 +108,17 @@
 import Card from '../Cards/Card.vue';
 import axios from 'axios';
 import netflix from '../assets/images/netflix.png'
+import { authStore } from '../stores/authStore';
+import { mapActions,mapState } from 'pinia';
 
 export default {
     components: {
         Card
+    },
+
+    computed:{
+        ...mapState(authStore,['watchlist12'])
+
     },
 
     data() {
@@ -143,7 +150,7 @@ export default {
                 this.currSlide = 0
             }
             this.currSlide++
-        }, 4000)
+        }, 6000)
 
         this.getrecom()
         this.getpop()
@@ -156,6 +163,7 @@ export default {
     },
 
     methods: {
+        ...mapActions(authStore,['setWatch']),
         getrecom() {
             this.$api1.get(`/movie?api_key=${this.apikey}&with_original_language=hi&sort_by=popularity.desc`)
                 .then(({ data }) => {

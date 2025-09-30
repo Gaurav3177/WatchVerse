@@ -16,18 +16,30 @@
         </v-card-text>
 
         <v-card-text class="py-2">
-            <v-btn  variant="text" color="blue-lighten-4">+ WatchList</v-btn>
+            <v-btn  variant="text" color="blue-lighten-4" @click.stop="setWatch(id,type)">+ WatchList</v-btn>
         </v-card-text>
     </v-card>
 </template>
 
 <script>
+
+import { authStore } from '../stores/authStore';
+import { mapActions,mapState } from 'pinia';
 export default {
     props: {
         img: String,
         title: String,
-        vote:String
+        vote:String,
+        id:String,
+        type:String
 
+    },
+    computed:{
+        ...mapState(authStore,['watchlist12'])
+    },
+
+    methods:{
+        ...mapActions(authStore,['setWatch'])
     }
 }
 </script>

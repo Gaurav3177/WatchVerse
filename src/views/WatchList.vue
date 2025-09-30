@@ -34,10 +34,12 @@ export default{
        
 
         getdata(){
-            const obj=this.watchlist12.find((item)=> item.id==this.user.id)
-            console.log(obj.movie)
-            this.data=obj.movie
-            console.log(this.data)
+            // const obj=this.watchlist12.find((item)=> item.id==this.user.id)
+            // console.log(obj.movie)
+            // this.data=obj.movie
+            // console.log(this.data)
+
+            console.log(this.watchlist12)
         
 
           
