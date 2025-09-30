@@ -58,7 +58,7 @@
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in recom" :key="item.id" :title="item.title"
-                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" @click="gotoDetails(item.id)">
+                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" @click="gotoDetails(item.id,'movie')">
                 </Card>
 
 
