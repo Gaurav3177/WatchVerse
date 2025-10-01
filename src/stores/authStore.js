@@ -80,6 +80,12 @@ export const authStore=defineStore('auth',{
 
         },
 
+        removeitem(id){
+            this.watchlistFinal[this.user.id].movies= this.watchlistFinal[this.user.id].movies.filter(item=> item.id!=id)
+            console.log("removed")
+
+        }
+
  
 
     },

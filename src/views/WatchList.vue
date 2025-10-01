@@ -1,31 +1,45 @@
 <template>
     <v-main>
         <v-container>
-     <div >
-            <h1 class="custom-font text-h5" style="font-weight: lighter; ">Popular Now</h1>
+            <div>
+                <h1 class="custom-font text-h5" style="font-weight: lighter; ">Popular Now</h1>
 
 
-            <div class="d-flex  rec-container">
+                <div class="d-flex  rec-container">
 
-                 <Card width="" v-for="item in data" :key="item.id" :title="item.title"
-                    :img="baseimage11 + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id">
-                </Card>
+                   
+                    <v-card class="custom-font mt-4 rec-card pa-3" v-for="item in data" :key="item.id">
+                        <v-img :src="baseimage11 + item.poster_path" class="img-style"></v-img>
+                        <v-card-text class="mx-0 pa-0 mt-2 custom-font">
+                            <div>
+                                <v-icon color="amber">mdi-star</v-icon>
+                                {{ item.vote_average.toFixed(1)}}
 
-                <v-card>
-                    
-                </v-card>
 
+                            </div>
+
+                            <div class="titleClass">
+                                {{ item.title || item.name}}
+                            </div>
+
+                        </v-card-text>
+
+                        <v-card-text class="">
+                            <v-btn variant="text" color="blue-lighten-4" @click="removeitem(item.id)"> -Remove</v-btn>
+                        </v-card-text>
+                    </v-card>
+
+                </div>
             </div>
-        </div>
 
 
-   
 
-    </v-container>
+
+        </v-container>
 
     </v-main>
 
-    
+
 </template>
 <script>
 
@@ -34,7 +48,7 @@ import { mapState, mapActions } from 'pinia';
 import Card from '../Cards/Card.vue';
 export default {
 
-    components:{
+    components: {
         Card
 
     },
@@ -48,42 +62,18 @@ export default {
         }
     },
     computed: {
-        ...mapState(authStore, ['user', 'accessToken', 'obj', 'watchlist12'])
+        ...mapState(authStore, ['user', 'accessToken', 'obj', 'watchlist12']),
+
+        data(){
+            return this.getWatch()[this.user.id].movies||[]
+        }
+        
     },
 
-    mounted() {
-
-        this.getdata()
-
-    },
+  
 
     methods: {
-        ...mapActions(authStore, ['getWatch', 'details']),
-
-
-        getdata() {
-            // const obj=this.watchlist12.find((item)=> item.id==this.user.id)
-            // console.log(obj.movie)
-            // this.data=obj.movie
-            // console.log(this.data)
-
-
-            const obj = this.getWatch()[this.user.id]
-            console.log(obj)
-
-
-            this.data=obj.movies
-            console.log(this.data)
-
-
-
-
-
-
-        },
-
-
-
+        ...mapActions(authStore, ['getWatch', 'details','removeitem']),
 
 
     }
@@ -95,6 +85,23 @@ export default {
 .rec-container {
     gap: 25px;
     overflow-x: auto;
+}
+.rec-card {
+    background-color: #1a1a1a;
+
+    min-width: 13rem;
+    height: 25rem;
+    cursor: pointer;
+
+
+
+
+    
+}
+
+.titleClass {
+    white-space: nowrap;
+   
 }
 
 </style>
