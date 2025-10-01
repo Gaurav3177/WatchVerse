@@ -3,7 +3,7 @@ import { createRouter,createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Details from "../views/Details.vue";
 import Signup from "../views/Signup.vue";
-import Login from "../views/Login.vue";
+
 import WatchList from "../views/WatchList.vue";
 
 const routes=[
@@ -28,16 +28,7 @@ const routes=[
 
 
     },
-    {
-       path: "/login",
-        name:"login",
-        component:Login
-
-
-
-    }
-    ,
-       {
+ {
        path: "/watch",
         name:"watch",
         component:WatchList

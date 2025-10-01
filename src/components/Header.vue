@@ -11,7 +11,9 @@
   <v-spacer></v-spacer>
 
   <v-list class="d-flex bg-black align-center">
-      <v-list-item class="items " to="login" v-if="auth.accessToken==null">Login</v-list-item>
+    <v-list-item class="items " to="signup" v-if="auth.accessToken==null">Signup</v-list-item>
+     
+      
   <v-list-item class="items ">Movies</v-list-item>
   <v-list-item class="items">Tv Shows</v-list-item>
   <v-list-item class="items" to="/watch">Watchlist</v-list-item>

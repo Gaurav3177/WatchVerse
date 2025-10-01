@@ -7,6 +7,7 @@ import './assets/css/global.css';
 import api from './plugins/api'
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
 const pinia=createPinia()
 pinia.use(piniaPluginPersistedstate)
 
