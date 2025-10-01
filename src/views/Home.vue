@@ -7,7 +7,7 @@
             <transition name="slides" mode="out-in">
 
                 <div v-if="slide[currSlide]" :key="currSlide" class="slide-container">
-                    <v-img class="pa-0 ma-0" :src="baseimage11 + slide[currSlide].backdrop_path" cover></v-img>
+                    <v-img class="pa-0 ma-0" :src="baseimage11 + slide[currSlide].backdrop_path" cover width="100%" height="100%"></v-img>
                     
                     <div class="slide-contain">
                       
@@ -25,7 +25,7 @@
 
                         </p>
                         <div class="d-flex mt-3 mx-0" style="gap: 10px;">
-                            <v-btn variant="text" color="blue">+WatchList</v-btn>
+                            <v-btn variant="text" color="blue" @click="setWatch(slide[currSlide].id,'tv')">+WatchList</v-btn>
                             <v-btn variant="text" color="blue" @click="gotoDetails(slide[currSlide].id,'tv')"> View Details</v-btn>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ export default {
     },
 
     computed:{
-        ...mapState(authStore,['watchlist12'])
+        
 
     },
 
@@ -233,6 +233,8 @@ export default {
 
 
 <style>
+
+
 .custom-font {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }

@@ -35,7 +35,7 @@ export default {
 
     },
     computed:{
-        ...mapState(authStore,['watchlist12'])
+        
     },
 
     methods:{

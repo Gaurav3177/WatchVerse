@@ -35,6 +35,10 @@ export const authStore=defineStore('auth',{
                 if(!this.watchlistFinal[this.user.id]){
                     this.setWatch1(this.user.id)
                 }
+
+                if(this.watchlistFinal[this.user.id].movies.some(item=> item.id==id)){
+                    return
+                }
                 this.watchlistFinal[this.user.id].movies.push(data)
                 console.log(this.watchlistFinal)
             })
