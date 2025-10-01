@@ -5,12 +5,14 @@ import Details from "../views/Details.vue";
 import Signup from "../views/Signup.vue";
 
 import WatchList from "../views/WatchList.vue";
+import { authStore } from "../stores/authStore";
 
 const routes=[
     {
         path:"/",
         name:"home",
         component:Home,
+       
         
 
     },
@@ -42,4 +44,23 @@ const router=createRouter({
     history:createWebHistory(),
     routes
 })
+
+router.beforeEach((to,from,next)=>{
+    const store=authStore()
+    const flag=store.accessToken!=null
+
+    if(!flag && to.name!="signup"){
+       return next({name:"signup"})
+    }
+
+    else if(flag && to.name=="signup"){
+        next({name:"home"})
+    }
+
+    next()
+
+    
+})
+
+
 export default router
