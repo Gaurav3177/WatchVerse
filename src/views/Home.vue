@@ -274,7 +274,7 @@ getxyz() {
     .slide-main-container {
     position: relative;
     width: 100%;
-    height: 84vh;
+    height: 84vh;}
 
 
     .slide-contain {
@@ -291,7 +291,7 @@ getxyz() {
 
 }
 
-}
+
 .slide-overlay {
   position: absolute;
   inset: 0;                    
