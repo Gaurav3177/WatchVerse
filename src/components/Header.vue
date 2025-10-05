@@ -35,7 +35,7 @@
 
 
   <v-list class="d-flex  align-center pr-12 " style="background: transparent; color: white;">
-    <v-list-item class="items " to="signup" v-if="auth.accessToken==null">Signup</v-list-item>
+    <v-list-item class="items " to="signup" v-if="auth.accessToken==null">Register</v-list-item>
      
       
   <v-list-item class="items " >Movies</v-list-item>

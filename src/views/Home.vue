@@ -265,6 +265,11 @@ getxyz() {
     height: 100%;
 }
 
+
+@media screen {
+    
+}
+
 .slide-contain {
     position: absolute;
     max-width: 32%;
