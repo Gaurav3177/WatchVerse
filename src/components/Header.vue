@@ -14,6 +14,7 @@
       color="white"
       class="mr-2"
       style="cursor: pointer;"
+      v-if="auth.accessToken!=null"
     >
       mdi-magnify
     </v-icon>
@@ -21,6 +22,7 @@
     <transition name="searcheffect">
 
     <v-text-field
+      v-if="auth.accessToken!=null"
       v-show="showSearch"
       class="search"
       label="Search Here"
@@ -28,7 +30,7 @@
       dense
       solo
       flat
-      :style="scrolled ? { backgroundColor: '#222', color: 'white' } : {border :'solid 2px black'}"
+      :style="scrolled ? { backgroundColor: '#222', color: 'white' } : {backgroundColor: '#222',border :'solid 3px black',color:'white'}"
     /></transition>
   </div>
   </div>

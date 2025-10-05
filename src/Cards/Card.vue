@@ -1,6 +1,6 @@
 <template>
     <v-card class="custom-font mt-4 rec-card pa-3">
-        <v-img :src="img" class="img-style"></v-img>
+        <v-img :src="img" class="img-style  " ></v-img>
         <v-card-text class="mx-0 pa-0 mt-2 custom-font">
             <div>
                 <v-icon color="amber">mdi-star</v-icon>
@@ -9,7 +9,7 @@
 
             </div>
 
-            <div>
+            <div class="title-text">
                 {{ title }}
             </div>
             
@@ -17,7 +17,7 @@
 
         <v-card-text class="py-2">
             <v-btn  variant="text" color="blue-lighten-4" @click.stop="setWatch(id,type)">+ WatchList</v-btn>
-            <v-btn  variant="text" color="blue-lighten-4" @click.stop="setWatch(id,type)">+ Favourites</v-btn>
+        
         </v-card-text>
     </v-card>
 </template>
@@ -49,15 +49,27 @@ export default {
 .rec-card {
     background-color: #1a1a1a;
 
-    min-width: 15rem;
-    height: 48vh;
+    height: 100%;
     cursor: pointer;
+    min-width: 14rem;
 
 
 
 
     
 }
+.img-style {
+  height: 18rem;      
+  object-fit: cover;  
+}
+
+.title-text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+
 
 
 </style>

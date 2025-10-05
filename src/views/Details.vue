@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <div class=" d-flex ml-15 mt-3 " style="max-width: 90%;  ">
+            <div class=" d-flex ml-15 mt-15 " style="max-width: 90%;  ">
 
                 <div>
 
@@ -69,7 +69,7 @@
                 <div class="d-flex rec-container">
 
                 
-                        <Card width="" v-for="item in similar" :key="item.id" :title="item.name"
+                        <Card width="" v-for="item in similar" :key="item.id" :title="item.name ||item.title"
                             :img="baseimage11 + item.poster_path || baseimage11" class="rec" :vote="item.vote_average" @click="$router.push(`/details/${$route.params.type}/${item.id}`)"
                             >
                         </Card>
@@ -133,7 +133,7 @@ export default {
             const { id, type } = this.$route.params;
             this.getDetails(id, type);
             this.getKey(id, type);
-            this.getprovider(id, type);
+           
             this.getSimilar(id, type);
         },
         getDetails(id, type) {
@@ -220,7 +220,7 @@ export default {
 
 .iframe-sizing {
 
-    height: 66vh;
+    height: 100%;
     width: 100%;
 
     border: none;
