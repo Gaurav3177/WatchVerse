@@ -30,7 +30,7 @@
       dense
       solo
       flat
-      :style="scrolled ? { backgroundColor: '#222', color: 'white' } : {backgroundColor: '#222',border :'solid 3px black',color:'white'}"
+      :style="scrolled ? { backgroundColor: '#222', color: 'white' } : {backgroundColor: 'transparent',border :'solid 3px black',color:'white'}"
     /></transition>
   </div>
   </div>
