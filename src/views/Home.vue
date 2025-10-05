@@ -280,7 +280,7 @@ getxyz() {
     .slide-contain {
     position: absolute;
     max-width: 50rem;
-    bottom: 9rem;
+    bottom: 7rem;
     left: 3rem;
     z-index: 1;
 }
