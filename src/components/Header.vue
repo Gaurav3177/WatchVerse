@@ -134,6 +134,21 @@ export default{
  
     
 }
+.searcheffect-enter-active,.searcheffect-leave-active{
+  transition: all 0.6s ease;
+
+}
+.searcheffect-enter-from, .searcheffect-leave-to {
+  width: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.searcheffect-enter-to, .searcheffect-leave-from {
+  width: 15rem; 
+  opacity: 2;
+}
 
 
 
