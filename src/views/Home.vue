@@ -255,10 +255,6 @@ getxyz() {
 }
 
 
-@media screen {
-    
-}
-
 .slide-contain {
     position: absolute;
     max-width: 50rem;
@@ -279,6 +275,16 @@ getxyz() {
     position: relative;
     width: 100%;
     height: 84vh;
+
+
+    .slide-contain {
+    position: absolute;
+    max-width: 50rem;
+    bottom: 9rem;
+    left: 3rem;
+    z-index: 1;
+}
+
 
 
 
