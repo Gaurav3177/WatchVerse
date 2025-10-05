@@ -276,6 +276,18 @@ getxyz() {
 
 
 }
+@media(max-width:1300px){
+    .slide-main-container {
+    position: relative;
+    width: 100%;
+    height: 43rem;
+
+
+
+
+}
+
+}
 .slide-overlay {
   position: absolute;
   inset: 0;                    
