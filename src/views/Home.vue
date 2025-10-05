@@ -268,19 +268,17 @@ getxyz() {
 }
 
 .slide-main-container {
-    position: relative;
-    width: 100%;
-    height: 52rem;
-
-
-
-
+  position: relative;
+  width: 100%;
+  height: 90vh; 
+  overflow: hidden;
 }
+
 @media(max-width:1300px){
     .slide-main-container {
     position: relative;
     width: 100%;
-    height: 43rem;
+    height: 30vh;
 
 
 
@@ -298,12 +296,13 @@ getxyz() {
 
 
 
-
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 1s ease-in-out;
+  position: absolute; 
+  width: 100%;
+  height: 100%;
 }
-
 
 .slide-enter-from {
   transform: translateX(100%);
