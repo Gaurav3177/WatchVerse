@@ -40,7 +40,7 @@
     <v-list-item class="items " to="signup" v-if="auth.accessToken==null">Register</v-list-item>
      
       
-  <v-list-item class="items " >Movies Edited</v-list-item>
+  <v-list-item class="items " >Movies</v-list-item>
   <v-list-item class="items">Tv Shows</v-list-item>
   <v-list-item class="items" to="/watch" >Watchlist</v-list-item>
   <v-list-item class="items" >Your Favourites</v-list-item>
@@ -123,6 +123,20 @@ export default{
 .searcheffect-enter-to, .searcheffect-leave-from {
   width: 30rem; 
   opacity: 2;
+}
+
+@media(max-width:1300px){
+
+.search{
+    max-width: 15rem;
+    width: 15rem;
+
+ 
+    
+}
+
+
+
 }
 
 
