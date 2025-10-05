@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <Header v-if="$route.name=='details'" :color="true"></Header>
+    <Header v-if="$route.name=='details' || $route.name=='watch'" :color="true"></Header>
     <Header v-else></Header>
 
-    <v-main v-if="$route.name == 'details'">
+    <v-main v-if="$route.name == 'details' || $route.name=='watch' ">
       <router-view></router-view>
     </v-main>
 

@@ -6,6 +6,7 @@ import Signup from "../views/Signup.vue";
 
 import WatchList from "../views/WatchList.vue";
 import { authStore } from "../stores/authStore";
+import Movie from "../views/Movie.vue";
 
 const routes=[
     {
@@ -37,7 +38,19 @@ const routes=[
 
 
 
-    }
+    },
+     {
+       path: "/movie",
+        name:"movie",
+        component:Movie
+
+
+
+    },
+
+  
+
+    
 ]
 
 const router=createRouter({

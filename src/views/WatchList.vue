@@ -1,8 +1,8 @@
 <template>
-    <v-main>
-        <v-container>
-            <div>
-                <h1 class="custom-font text-h5" style="font-weight: lighter; ">Popular Now</h1>
+   <v-app>
+    
+   <v-main class="bg-black">
+               
 
 
                 <div class="d-flex  rec-container">
@@ -30,14 +30,15 @@
                     </v-card>
 
                 </div>
-            </div>
+                </v-main>
+                </v-app>
 
 
 
 
-        </v-container>
 
-    </v-main>
+
+
 
 
 </template>
