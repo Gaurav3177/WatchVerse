@@ -43,8 +43,8 @@
   <v-list-item class="items " >Movies edited</v-list-item>
   <v-list-item class="items">Tv Shows</v-list-item>
   <v-list-item class="items" to="/watch" >Watchlist</v-list-item>
-  <v-list-item class="items" >Your Favourites</v-list-item>
-  <v-list-item class="items" @click="auth.logout(this.$router)" v-if="auth.accessToken!=null"> Logout</v-list-item>
+  <!-- <v-list-item class="items" >Your Favourites</v-list-item>
+  <v-list-item class="items" @click="auth.logout(this.$router)" v-if="auth.accessToken!=null"> Logout</v-list-item> -->
   <v-list-item class="items">
     <v-img :src="profile" max-width="40"  max-height="40" class="rounded" ></v-img>
   </v-list-item>
