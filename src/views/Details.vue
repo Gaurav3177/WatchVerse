@@ -1,13 +1,13 @@
 <template>
-    <v-main class="ma-0 pa-0">
+   
         <!-- <h1>Details</h1>
         <p>{{ this.$route.params.id }}</p> -->
 
-        <v-container fluid class=" mt-5 pa-0" style=" width: 100%; height: 100%;">
+        <v-container fluid class=" pa-0 bg-black" style=" width: 100%; height: 100%;">
             <div class="d-flex" style="gap: 20px;">
-                <div style="width: 20%;" class="ml-10">
+                <div style="" class="ml-10">
 
-                    <h2 class="custom-font ml-3">{{ details.title || details.name }}</h2>
+                    <h2 class="custom-font ml-3 mt-7">{{ details.title || details.name }}</h2>
                     <div class="d-flex ml-2" style="gap: 5px;">
 
                         <v-icon color="amber">mdi-star</v-icon>
@@ -23,7 +23,7 @@
 
                 </div>
                 <div style="width: 100%;">
-                    <iframe class="iframe-sizing ma-0 pa-0" :src="baseyoutube + key" id="myiframe" v-if="key != ''">
+                    <iframe class="iframe-sizing mt-7 pa-0" :src="baseyoutube + key" id="myiframe" v-if="key != ''">
                     </iframe>
 
                 </div>
@@ -90,7 +90,7 @@
 
 
         </v-container>
-    </v-main>
+
 </template>
 
 <script>
@@ -211,15 +211,16 @@ export default {
 </script>
 <style scoped>
 #title-img {
-    width: 13rem;
-    height: 24rem;
+    width: 14vw;
+    height:57vh;
 
     border-radius: 1rem;
 
 }
 
 .iframe-sizing {
-    height: 100%;
+
+    height: 66vh;
     width: 100%;
 
     border: none;

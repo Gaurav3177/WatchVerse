@@ -1,47 +1,46 @@
 <template>
-    <v-main class="ma-0 pa-0 custom-font">
-
-        <div class="slide-main-container">
 
 
-            <transition name="slides" mode="out-in">
 
-                <div v-if="slide[currSlide]" :key="currSlide" class="slide-container">
-                    <v-img class="pa-0 ma-0" :src="baseimage11 + slide[currSlide].backdrop_path" cover width="100%" height="100%"></v-img>
-                    
-                    <div class="slide-contain">
-                      
-                            <v-img :src="netflix" alt="" width="2rem" class="mx-0 pa-0 " ></v-img>
-                            <h1 class="custom-font ma-0 pa-0">Series</h1>
-                            
-              
-                        
-                        
-                        
+    <div class="slide-main-container">
 
-                        <h1>{{ slide[currSlide].name }}</h1>
-                        <p style=" color: white; font-size: 1.3rem;" class="mt-4 custom-font1">
-                            {{ slide[currSlide].overview }}
 
-                        </p>
-                        <div class="d-flex mt-3 mx-0" style="gap: 10px;">
-                            <v-btn variant="text" color="blue" @click="setWatch(slide[currSlide].id,'tv')">+WatchList</v-btn>
-                            <v-btn variant="text" color="blue" @click="gotoDetails(slide[currSlide].id,'tv')"> View Details</v-btn>
-                        </div>
+        <transition name="slides" mode="out-in">
+
+            <div v-if="slide[currSlide]" :key="currSlide" class="slide-container">
+                <v-img class="pa-0 ma-0" :src="baseimage11 + slide[currSlide].backdrop_path" cover width="100%"
+                    height="100%"></v-img>
+
+                <div class="slide-contain">
+
+
+
+
+
+
+
+
+                    <h1 class="custom-font2">{{ slide[currSlide].name }}</h1>
+                    <h2 class="custom-font2">{{ slide[currSlide].first_air_date }}</h2>
+                    <p style=" color: white; font-size: 1.3rem;" class="mt-4 custom-font1">
+                        {{ slide[currSlide].overview }}
+
+                    </p>
+
+                    <div class="d-flex mt-3 mx-0" style="gap: 10px;">
+                        <v-btn variant="text" color="blue"
+                            @click="setWatch(slide[currSlide].id, 'tv')">+WatchList</v-btn>
+                        <v-btn variant="text" color="blue" @click="gotoDetails(slide[currSlide].id, 'tv')"> View
+                            Details</v-btn>
                     </div>
-
-
                 </div>
-            </transition>
 
 
-        </div>
+            </div>
+        </transition>
 
 
-
-
-
-
+    </div>
 
 
 
@@ -51,6 +50,11 @@
 
 
 
+
+
+
+
+    <div class="bg-black">
         <div class="mt-5">
             <h1 class="custom-font text-h5" style="font-weight: lighter; ">Recommendations For You</h1>
 
@@ -58,7 +62,8 @@
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in recom" :key="item.id" :title="item.title"
-                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="movie" @click="gotoDetails(item.id,'movie')">
+                    :img="baseimage + item.poster_path" class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id"
+                    type="movie" @click="gotoDetails(item.id, 'movie')">
                 </Card>
 
 
@@ -67,13 +72,14 @@
 
 
         <div class="mt-5">
-            <h1 class="custom-font text-h5" style="font-weight: lighter; ">Popular Now</h1>
+            <h1 class="custom-font text-h5" style="font-weight: lighter; ">Trending Now</h1>
 
 
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in pop" :key="item.id" :title="item.name" :img="baseimage + item.poster_path"
-                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv" @click="gotoDetails(item.id,'tv')">
+                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv"
+                    @click="gotoDetails(item.id, 'tv')">
                 </Card>
 
 
@@ -82,18 +88,20 @@
 
 
         <div class="mt-5">
-            <h1 class="custom-font text-h5" style="font-weight: lighter; ">Popular Now</h1>
+            <h1 class="custom-font text-h5" style="font-weight: lighter; ">New Releases</h1>
 
 
             <div class="d-flex rec-container">
 
                 <Card width="" v-for="item in xyz" :key="item.id" :title="item.name" :img="baseimage + item.poster_path"
-                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv" @click="gotoDetails(item.id,'tv')">
+                    class="rec" :vote="item.vote_average.toFixed(1)" :id="item.id" type="tv"
+                    @click="gotoDetails(item.id, 'tv')">
                 </Card>
 
 
             </div>
         </div>
+    </div>
 
 
 
@@ -101,7 +109,6 @@
 
 
 
-    </v-main>
 </template>
 
 <script>
@@ -109,15 +116,15 @@ import Card from '../Cards/Card.vue';
 import axios from 'axios';
 import netflix from '../assets/images/netflix.png'
 import { authStore } from '../stores/authStore';
-import { mapActions,mapState } from 'pinia';
+import { mapActions, mapState } from 'pinia';
 
 export default {
     components: {
         Card
     },
 
-    computed:{
-        
+    computed: {
+
 
     },
 
@@ -146,7 +153,7 @@ export default {
 
     mounted() {
         setInterval(() => {
-            if (this.currSlide == 9) {
+            if (this.currSlide == 17) {
                 this.currSlide = 0
             }
             this.currSlide++
@@ -156,14 +163,13 @@ export default {
         this.getpop()
         this.getxyz()
         this.getslide()
-        // this.getprovider(this.slide[this.currSlide].id)
-        // this.getprovider(this.slide[this.currSlide].id)
+
 
 
     },
 
     methods: {
-        ...mapActions(authStore,['setWatch']),
+        ...mapActions(authStore, ['setWatch']),
         getrecom() {
             this.$api1.get(`/movie?api_key=${this.apikey}&with_original_language=hi&sort_by=popularity.desc`)
                 .then(({ data }) => {
@@ -184,30 +190,31 @@ export default {
 
                 })
         },
+getxyz() {
+    axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.apikey}&language=en-US`)
+        .then(({ data }) => {
+            this.xyz = data.results
+            console.log(this.xyz)
+        })
+}
 
-        getxyz() {
-
-            axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${this.apikey}&language=en`)
-                .then(({ data }) => {
-                    this.xyz = data.results
-                    console.log(this.xyz)
-
-
-                })
-
-        },
+,
 
         getslide() {
-            axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${this.apikey}`)
-                .then(({ data }) => {
-                    this.slide = data.results.slice(0, 10);
-                    console.log("Slide=", this.slide);
+  axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${this.apikey}&language=en-US`)
 
-                    if (this.slide.length > 0) {
-                        this.getprovider(this.slide[this.currSlide].id);
-                    }
-                });
-        },
+        .then(({ data }) => {
+            this.slide = data.results.slice(0, 18);
+            console.log("Slide=", this.slide);
+
+            if (this.slide.length > 0) {
+                this.getprovider(this.slide[this.currSlide].id);
+            }
+        });
+}
+
+
+        ,
 
         getprovider(id) {
             axios.get(`https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=${this.apikey}`)
@@ -220,7 +227,7 @@ export default {
 
         },
 
-        gotoDetails(id,type){
+        gotoDetails(id, type) {
             this.$router.push(`/details/${type}/${id}`)
         }
 
@@ -234,9 +241,11 @@ export default {
 
 <style>
 
+.slide-contain h1,
+.slide-contain h2,
+.slide-contain p {
 
-.custom-font {
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
 }
 
 .rec-container::-webkit-scrollbar {
@@ -258,14 +267,14 @@ export default {
 
 .slide-contain {
     position: absolute;
-    max-width: 34rem;
-    bottom: 8rem;
+    max-width: 32%;
+    bottom: 11.5rem;
     left: 3rem;
 }
 
 .slide-main-container {
     position: relative;
     width: 100%;
-    height: 39rem;
+    height: 90vh;
 }
 </style>

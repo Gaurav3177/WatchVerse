@@ -9,3 +9,8 @@
   color: white;
   font-weight: 300;
 }
+.custom-font2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: white;
+  font-weight: bold;
+}

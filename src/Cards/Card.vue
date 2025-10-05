@@ -17,6 +17,7 @@
 
         <v-card-text class="py-2">
             <v-btn  variant="text" color="blue-lighten-4" @click.stop="setWatch(id,type)">+ WatchList</v-btn>
+            <v-btn  variant="text" color="blue-lighten-4" @click.stop="setWatch(id,type)">+ Favourites</v-btn>
         </v-card-text>
     </v-card>
 </template>
@@ -48,8 +49,8 @@ export default {
 .rec-card {
     background-color: #1a1a1a;
 
-    min-width: 13rem;
-    height: 25rem;
+    min-width: 15rem;
+    height: 48vh;
     cursor: pointer;
 
 

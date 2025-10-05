@@ -1,10 +1,15 @@
 <template>
   <v-app>
-    <Header></Header>
-    <v-main class="bg-black">
-      <router-view></router-view>
+    <Header v-if="$route.name=='details'" :color="true"></Header>
+    <Header v-else></Header>
 
+    <v-main v-if="$route.name == 'details'">
+      <router-view></router-view>
     </v-main>
+
+      <router-view v-else></router-view>
+
+    
 
   </v-app>
 
