@@ -278,7 +278,7 @@ getxyz() {
     .slide-main-container {
     position: relative;
     width: 100%;
-    height: 30vh;
+    height: 45vh;
 
 
 
