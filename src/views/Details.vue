@@ -29,9 +29,9 @@
                 </div>
             </div>
 
-            <div class=" d-flex ml-15 mt-15 " style="max-width: 90%;  ">
+            <div class=" d-flex ml-15 mt-15 " style=" max-width: 95%;">
 
-                <div>
+                <div style="flex: 1; min-width: 0;">
 
 
                     <v-btn variant="text" v-for="item in btn" :key="item"> {{ item.name }} </v-btn>
@@ -49,14 +49,15 @@
 
                     <hr class="ml-4">
 
-                    <p class="ml-4 mt-2">Available on {{ ProviderName }}</p>
+                    <p class="ml-4 mt-2">Available on Netflix</p>
 
 
                 </div>
+               
 
-                <div class="mt-12 ">
+                <div class="mt-12 d-flex" style="flex-direction: column;" >
                     <v-btn variant="text" color="blue">+ WatchList</v-btn>
-                    <v-btn variant="text" color="blue">+ Add to Favourites</v-btn>
+                    <v-btn variant="text" color="blue">+ Favourites</v-btn>
                 </div>
             </div>
 
